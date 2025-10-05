@@ -1,0 +1,58 @@
+# AlexNet Training Configuration
+
+# Model Configuration
+model:
+  name: "AlexNet"
+  num_classes: 10
+  input_size: [3, 227, 227]
+
+# Dataset Configuration
+dataset:
+  name: "CIFAR10"
+  data_dir: "./data"
+  num_workers: 4
+  pin_memory: true
+  mean: [0.4914, 0.4822, 0.4465]
+  std: [0.2023, 0.1994, 0.2010]
+
+# Training Configuration
+training:
+  num_epochs: 5
+  batch_size: 64
+  learning_rate: 0.005
+  momentum: 0.9
+  weight_decay: 0.005
+  valid_size: 0.1
+  shuffle: true
+  random_seed: 42
+
+# Optimizer Configuration
+optimizer:
+  type: "SGD"
+  momentum: 0.9
+  weight_decay: 0.005
+
+# Loss Configuration
+loss:
+  type: "CrossEntropyLoss"
+
+# Checkpoint Configuration
+checkpoint:
+  save_dir: "./checkpoints"
+  save_frequency: 5  # Save every N epochs
+  save_best_only: true
+  resume_from: null  # Path to checkpoint to resume from
+
+# Logging Configuration
+logging:
+  log_dir: "./logs"
+  tensorboard_dir: "./runs"
+  save_visualizations: true
+  visualization_dir: "./visualizations"
+  log_frequency: 100  # Log every N steps
+
+# Device Configuration
+device:
+  use_cuda: true
+  gpu_ids: [0]
+
