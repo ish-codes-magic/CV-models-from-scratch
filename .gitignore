@@ -5,6 +5,7 @@ __pycache__/
 Alexnet/data/*
 Alexnet/runs/*
 Alexnet/README.md
+Alexnet/checkpoints/*
 
 # C extensions
 *.so
